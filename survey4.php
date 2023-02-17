@@ -3,19 +3,16 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
-		<title>Survey Form</title>
+		<title>Survei Keterkaian antar Faktor Pengaruh Minat Siswa Melanjutkan Pendidikan</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<form class="survey-form" method="post" action="survey5.php">		
-			<h1><i class="far fa-list-alt"></i>Survey Form</h1>
+			<h1><i class="far fa-list-alt"></i>Survei Keterkaian antar Faktor Pengaruh Minat Siswa Melanjutkan Pendidikan</h1>
 
 			<div class="steps">
 				<div class="step current"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
 				<div class="step"></div>
 				<div class="step"></div>
 				<div class="step"></div>
@@ -166,27 +163,17 @@
 				</div>
 				<div class="buttons">
 					<a href="#" class="btn alt" data-set-step="5">Prev</a>
-					<a href="#" class="btn" data-set-step="7">Next</a>
+					<input type="submit" name="submit" class="btn" value="Next">
 				</div>
 			</div>
-
-			<!-- page 7 -->
-			<div class="step-content" data-step="7">
-				<div class="buttons">
-					<input type="submit" name="submit" value="Get Result">
-				</div>
-			</div>
-			<!-- <div class="step-content" data-step="9">
-				<div class="result"><?=$response?></div>
-			</div> -->
 
 		</form>
 		<?php
 	      if(isset($_POST['submit'])){
-	        if(!empty($_POST['q1'])||!empty($_POST['q2'])||!empty($_POST['q3'])||!empty($_POST['q4'])||!empty($_POST['q5'])||!empty($_POST['q6'])) {
+	        if(!empty($_POST['q1'])||!empty($_POST['q2'])||!empty($_POST['q3'])||!empty($_POST['q4'])||!empty($_POST['q5'])||!empty($_POST['q6'])||!empty($_POST['q7'])) {
 	        	
-	        	$data = "\n".$_POST['q1'].','. $_POST['q2'].','.$_POST['q3'].','. $_POST['q4'].','. $_POST['q5'].','. $_POST['q6'];
-	        	print_r($data);
+	        	$data = "\n".$_POST['q1'].','. $_POST['q2'].','.$_POST['q3'].','. $_POST['q4'].','. $_POST['q5'].','. $_POST['q6'].','. $_POST['q7'];
+	        	
 	        	$myfile = fopen("output.csv", "a") or die("Unable to open file!");
 	        	fwrite($myfile, $data);
 	        } else {

@@ -3,24 +3,16 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
-		<title>Survey Form</title>
+		<title>Survei Keterkaian antar Faktor Pengaruh Minat Siswa Melanjutkan Pendidikan</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<form class="survey-form" method="post" action="">		
-			<h1><i class="far fa-list-alt"></i>Survey Form</h1>
+		<form class="survey-form" method="post" action="survey10.php">		
+			<h1><i class="far fa-list-alt"></i>Survei Keterkaian antar Faktor Pengaruh Minat Siswa Melanjutkan Pendidikan</h1>
 
 			<div class="steps">
 				<div class="step current"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
-				<div class="step"></div>
 			</div>
 			<div class="step-content current" data-step="1">
 				<div class="fields">
@@ -41,27 +33,17 @@
 					</div>				
 				</div>
 				<div class="buttons">
-					<a href="#" class="btn" data-set-step="2">Next</a>
+					<input type="submit" name="submit" class="btn" value="Next">
 				</div>
 			</div>
-
-			<!-- page 2 -->
-			<div class="step-content" data-step="2">
-				<div class="buttons">
-					<input type="submit" name="submit" value="Get Result">
-				</div>
-			</div>
-			<!-- <div class="step-content" data-step="9">
-				<div class="result"><?=$response?></div>
-			</div> -->
 
 		</form>
 		<?php
 	      if(isset($_POST['submit'])){
-	        if(!empty($_POST['q1'])) {
+	        if(!empty($_POST['q1'])||!empty($_POST['q2'])) {
 	        	
-	        	$data = "\n".$_POST['q1'];
-	        	print_r($data);
+	        	$data = "\n".$_POST['q1'].','. $_POST['q2'];
+	        	
 	        	$myfile = fopen("output.csv", "a") or die("Unable to open file!");
 	        	fwrite($myfile, $data);
 	        } else {
@@ -86,7 +68,5 @@ document.querySelectorAll("[data-set-step]").forEach(element => {
 		setStep(parseInt(element.dataset.setStep));
 	};
 });
-<?php if (!empty($_POST)): ?>
-setStep(4);
-<?php endif; ?>
+
 </script>

@@ -3,17 +3,16 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
-		<title>Survey Form</title>
+		<title>Survei Keterkaian antar Faktor Pengaruh Minat Siswa Melanjutkan Pendidikan</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<form class="survey-form" method="post" action="survey3.php">		
-			<h1><i class="far fa-list-alt"></i>Survey Form</h1>
+			<h1><i class="far fa-list-alt"></i>Survei Keterkaian antar Faktor Pengaruh Minat Siswa Melanjutkan Pendidikan</h1>
 
 			<div class="steps">
 				<div class="step current"></div>
-				<div class="step"></div>
 				<div class="step"></div>
 				<div class="step"></div>
 				<div class="step"></div>
@@ -216,30 +215,18 @@
 				</div>
 				<div class="buttons">
 					<a href="#" class="btn alt" data-set-step="7">Prev</a>
-					<a href="#" class="btn" data-set-step="9">Next</a>
+					<input type="submit" name="submit" class="btn" value="Next">
 				</div>
 			</div>
-
-			<!-- page 9 -->
-			<div class="step-content" data-step="9">
-				<div class="buttons">
-					<input type="submit" name="submit" value="Get Result">
-				</div>
-			</div>
-			<!-- <div class="step-content" data-step="9">
-				<div class="result"><?=$response?></div>
-			</div> -->
 
 		</form>
 		<?php
-		ob_start();
 	      if(isset($_POST['submit'])){
-	        if(!empty($_POST['q1'])||!empty($_POST['q2'])||!empty($_POST['q3'])||!empty($_POST['q4'])||!empty($_POST['q5'])||!empty($_POST['q6'])||!empty($_POST['q7'])||!empty($_POST['q8'])) {
+	        if(!empty($_POST['q1'])||!empty($_POST['q2'])||!empty($_POST['q3'])||!empty($_POST['q4'])||!empty($_POST['q5'])||!empty($_POST['q6'])||!empty($_POST['q7'])||!empty($_POST['q8'])||!empty($_POST['q9'])) {
 	        	
-	        	$data = "\n".$_POST['q1'].','. $_POST['q2'].','.$_POST['q3'].','. $_POST['q4'].','. $_POST['q5'].','. $_POST['q6'].','. $_POST['q7'].','.$_POST['q8'];
-	        	print_r($data);
-	        	$myfile = fopen("output.csv", "a") or die("Unable to open file!");
-	        	fwrite($myfile, $data);
+	        	$data = $_POST['q1'].','. $_POST['q2'].','.$_POST['q3'].','. $_POST['q4'].','. $_POST['q5'].','. $_POST['q6'].','. $_POST['q7'].','.$_POST['q8'].','.$_POST['q9'];
+	        	
+	        	file_put_contents("output.csv", print_r($data, true));
 	        } else {
 	          echo 'Please select the value.';
 	        }
